@@ -13,7 +13,7 @@ You can implement and plugin your own providers too, but you should be careful w
 ## Code Examples
 1. Java Ciphers
 2. Java Message Digest
-3. [Java MAC](/hmac)
+3. [Java MAC](/hmac.md)
 4. Java Signature
 
 ## Misc
