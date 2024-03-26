@@ -4,11 +4,22 @@ Hash-based Message Authentication Code (HMAC) is a good solution.
 
 HMAC is a cryptographic method that guarantees <b>the integrity of the message between two parties.</b>
 
-HMAC algorithm consists of a <b>secret key</b> and a <b>hash function</b>. The secret key is a unique piece of information or a string of characters. It is known both by the sender and the receiver of the message.
+## MAC properties
+In essence, a MAC is a cryptographic checksum sent along with a message to assure the receiver of data origin authentication. The basic model of a MAC is shown in the illustration below. 
 
-The hash function is a mapping algorithm that converts one sequence to another sequence.
+![image info](/images/HMAC.jpeg)
 
-![image info](/images/hmac-in-java.webp)
+In this model, the sender and the receiver share a symmetric key K. The MAC takes the message and the key K as input. 
+The sender transmits the message accompanied by the MAC. 
+
+<i>Note that we will assume this message is sent clearly since we’re only trying to provide data origin authentication, not confidentiality. If confidentiality is also required, the message will need to be encrypted.
+</i>
+
+Upon receiving the message and the MAC, the receiver inputs the received message and the key K into the MAC algorithm and recomputes the MAC. 
+The receiver then checks whether this freshly recomputed MAC matches the MAC sent by the sender. If they do match, the receiver accepts the message and regards data origin authentication as being provided.
+
+we will always assume that an attacker knows the MAC algorithm but is unaware of the MAC key.
+
 
 ## HMAC in Java
 
